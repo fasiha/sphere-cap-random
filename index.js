@@ -9,5 +9,5 @@ export {
 
   example1,
   example2,
-} from "./capRandom.js";
+} from "./src/capRandom.js";
 
