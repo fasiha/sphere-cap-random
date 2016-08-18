@@ -2,10 +2,13 @@
   "name": "randcone",
   "version": "1.0.0",
   "description": "What is going on here?",
-  "main": "sampleSphere.js",
+  "main": "dist/sphereModule.js",
+  "module": "index",
+  "jsnext:main": "index",
   "scripts": {
-    "prebuild": "mkdir -p dist && rollup -c",
-    "build": "mkdir -p dist && rollup -c && uglifyjs dist/sphereModule.js -c -m -o dist/sphereModule.min.js"
+    "pretest": "rm -fr dist && mkdir -p dist && rollup -c",
+    "test" : "npm run pretest && tape 'test/**/*-test.js'",
+    "build": "npm run test && uglifyjs dist/sphereModule.js -c -m -o dist/sphereModule.min.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +30,7 @@
     "rollup-plugin-commonjs": "^3.3.1",
     "rollup-plugin-node-resolve": "^2.0.0",
     "source-map-support": "^0.4.2",
+    "tape": "^4.6.0",
     "uglify-js": "^2.7.3"
   }
 }
