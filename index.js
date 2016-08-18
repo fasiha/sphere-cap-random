@@ -9,5 +9,5 @@ export {
 
   example1,
   example2,
-} from "./sampleSphere.js";
+} from "./capRandom.js";
 

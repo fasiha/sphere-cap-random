@@ -1,18 +1,28 @@
 {
-  "name": "randcone",
-  "version": "1.0.0",
-  "description": "What is going on here?",
-  "main": "dist/sphereModule.js",
+  "name": "sphere-cap-random",
+  "version": "0.0.1",
+  "description": "Randomly sample points on the directed spherical cap",
+  "main": "dist/cap-random.js",
   "module": "index",
   "jsnext:main": "index",
   "scripts": {
     "pretest": "rm -fr dist && mkdir -p dist && rollup -c",
     "test" : "npm run pretest && tape 'test/**/*-test.js'",
-    "build": "npm run test && uglifyjs dist/sphereModule.js -c -m -o dist/sphereModule.min.js"
+    "build": "npm run test && uglifyjs dist/cap-random.js -c -m -o dist/cap-random.min.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["random",
+               "sample",
+               "points",
+               "sphere",
+               "spherical cap",
+               "geometry",
+               "linear algebra"],
+  "author": "Ahmed Fasih",
   "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fasiha/sphere-cap-random.git"
+  },
   "dependencies": {
     "ndarray": "^1.0.18",
     "ndarray-diagonal": "^1.0.0",

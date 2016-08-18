@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel';
 export default {
   entry : 'index.js',
   format : 'umd',
-  moduleName : 'sphereModule',
+  moduleName : 'capRandom',
   plugins : [
     npm({jsnext : true}), commonjs({
       ignoreGlobal : true,
@@ -33,8 +33,8 @@ export default {
     }),
     babel()
   ],
-  dest : './dist/sphereModule.js',
+  dest : './dist/cap-random.js',
   sourceMap: true,
-  sourceMapFile: 'dist/sphereModule.js.map'
+  sourceMapFile: 'dist/cap-random.js.map'
 };
 
