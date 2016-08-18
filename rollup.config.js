@@ -33,6 +33,8 @@ export default {
     }),
     babel()
   ],
-  dest : './dist/sphereModule.js'
+  dest : './dist/sphereModule.js',
+  sourceMap: true,
+  sourceMapFile: 'dist/sphereModule.js.map'
 };
 

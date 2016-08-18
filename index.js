@@ -1,7 +1,13 @@
 export {
   default as sampleSphericalCap,
-  foo,
-  bar,
+  sampleDirectedSphericalCap,
   axisAngleToRotationMatrix,
+  normalizeCols,
+  crossMatrix,
+  ndToIterator,
+  dot,
+
+  example1,
+  example2,
 } from "./sampleSphere.js";
 

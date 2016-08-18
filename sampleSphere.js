@@ -28,24 +28,20 @@ export default function sampleSphericalCap(params) {
   });
 }
 
-export function crossMatrix(x, y, z) {
-  return [
-    0, -z, y, //
-    z, 0, -x, //
-    -y, x, 0
-  ];
+export function sampleDirectedSphericalCap(direction, ...args) {
+  const normDir = normalizeCols(direction);
+  const rotAxis = normalizeCols(dot(crossMatrix(0, 0, 1), normDir));
+  const rotAngle =
+      Math.acos(dot(ndarray([ 0, 0, 1 ], [ 1, 3 ]), normDir).get(0, 0));
+  const R = axisAngleToRotationMatrix(rotAxis, rotAngle);
+
+  const samples = pack(sampleSphericalCap(...args)).transpose(1, 0);
+
+  return dot(R, samples);
 }
 
-//export function dot(...args) {
-//  args.reduce((sofar, curr) => {
-//    const result = zeros([ sofar.shape[0], curr.shape[1] ]);
-//    gemm(result, sofar, curr);
-//    return result;
-//  })
-//}
-
 export function axisAngleToRotationMatrix(axis, angleRad) {
-  const C = ndarray(crossMatrix(...axis), [ 3, 3 ]);
+  const C = crossMatrix(...ndToIterator(axis));
   ops.mulseq(C, Math.sin(angleRad));
 
   const R = zeros([ 3, 3 ]);
@@ -53,14 +49,43 @@ export function axisAngleToRotationMatrix(axis, angleRad) {
 
   ops.addeq(R, C);
 
-  const u = ndarray(axis, [ 3, 1 ]);
-  gemm(R, u, u.transpose(1, 0), 1, 1);
+  gemm(R, axis, axis.transpose(1, 0), 1, 1);
 
   return R;
 }
 
-export function foo() { return ops.random(ndarray([ 1, 2, 3, 4 ], [ 2, 2 ])); }
-export function bar() {
+export function crossMatrix(x, y, z) {
+  return pack([
+    [ 0, -z, y ], //
+    [ z, 0, -x ], //
+    [ -y, x, 0 ]
+  ]);
+}
+
+export function dot(...args) {
+  return args.reduce((sofar, curr) => {
+    const result = zeros([ sofar.shape[0], curr.shape[1] ]);
+    gemm(result, sofar, curr);
+    return result;
+  });
+}
+
+export function ndToIterator(x) { return (x.data || x); }
+
+// Can https://github.com/scijs/cwise#compute-2d-vector-norms-using-blocks be
+// used here?
+export function normalizeCols(x) {
+  for (var i = 0; i < x.shape[1]; i++) {
+    const col = x.pick(null, i);
+    const norm = ops.norm2(col);
+    ops.divseq(col, norm);
+  }
+  return x;
+}
+
+export function example1() { return ops.random(ndarray([ 1, 2, 3, 4 ], [ 2, 2 ])); }
+
+export function example2() {
   const a = ops.random(zeros([ 2, 2 ]));
   const b = ndarray([ 100, 200, 300, 400 ], [ 2, 2 ]);
   const c = zeros([ 2, 2 ]);
