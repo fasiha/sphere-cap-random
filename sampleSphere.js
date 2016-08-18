@@ -3,6 +3,7 @@ import zeros from "zeros";
 import * as ops from 'ndarray-ops';
 import pack from 'ndarray-pack';
 import gemm from 'ndarray-gemm';
+import diagonal from 'ndarray-diagonal';
 
 export default function sampleSphericalCap(params) {
   params = params == null ? {N : 1, z : 0} : params;
@@ -45,7 +46,7 @@ export function crossMatrix(x, y, z) {
 
 export function axisAngleToRotationMatrix(axis, angleRad) {
   const C = ndarray(crossMatrix(...axis), [ 3, 3 ]);
-  ops.multseq(C, Math.sin(angleRad));
+  ops.mulseq(C, Math.sin(angleRad));
 
   const R = zeros([ 3, 3 ]);
   ops.assigns(diagonal(R), Math.cos(angleRad));
@@ -58,4 +59,11 @@ export function axisAngleToRotationMatrix(axis, angleRad) {
   return R;
 }
 
-export function foo() { return ndarray([ 1, 2, 3, 4 ], [ 2, 2 ]); }
+export function foo() { return ops.random(ndarray([ 1, 2, 3, 4 ], [ 2, 2 ])); }
+export function bar() {
+  const a = ops.random(zeros([ 2, 2 ]));
+  const b = ndarray([ 100, 200, 300, 400 ], [ 2, 2 ]);
+  const c = zeros([ 2, 2 ]);
+  ops.add(c, a, b);
+  return c;
+}
