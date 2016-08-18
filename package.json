@@ -4,7 +4,7 @@
   "description": "What is going on here?",
   "main": "sampleSphere.js",
   "scripts": {
-    "prepublish": "rollup -c && uglifyjs d3.js -c -m -o d3.min.js"
+    "prepublish": "rollup -c && uglifyjs sphereModule.js -c -m -o sphereModule.min.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,7 @@
   "dependencies": {
     "ndarray": "^1.0.18",
     "ndarray-diagonal": "^1.0.0",
+    "ndarray-gemm": "^1.0.0",
     "ndarray-ops": "^1.2.2",
     "ndarray-pack": "^1.2.1",
     "ndarray-show": "^2.0.0",

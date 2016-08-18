@@ -6,7 +6,15 @@ export default {
   entry : "index.js",
   format : "umd",
   moduleName : "sphereModule",
-  plugins : [ npm({jsnext : true}), babel(), commonjs({ignoreGlobal : true}) ],
+  plugins : [
+    npm({jsnext : true}), commonjs({
+      ignoreGlobal : true,
+      namedExports : {
+        'node_modules/ndarray-ops/ndarray-ops.js' : [ 'addeq', 'multseq' ]
+      }
+    }),
+    babel()
+  ],
   dest : "sphereModule.js"
 };
 
