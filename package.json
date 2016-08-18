@@ -1,0 +1,22 @@
+{
+  "name": "randcone",
+  "version": "1.0.0",
+  "description": "What is going on here?",
+  "main": "sampleSphere.js",
+  "scripts": {
+    "prepublish": "rollup -c && uglifyjs d3.js -c -m -o d3.min.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "dependencies": {
+    "ndarray": "^1.0.18"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "rollup": "^0.34.10",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "uglify-js": "^2.7.3"
+  }
+}
