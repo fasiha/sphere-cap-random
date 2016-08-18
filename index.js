@@ -1,2 +1,4 @@
-export {default as sampleSphericalCap} from "./sampleSphere.js";
+export {
+  default as sampleSphericalCap,
+} from "./sampleSphere.js";
 

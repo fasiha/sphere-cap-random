@@ -10,12 +10,19 @@
   "author": "",
   "license": "Unlicense",
   "dependencies": {
-    "ndarray": "^1.0.18"
+    "ndarray": "^1.0.18",
+    "ndarray-diagonal": "^1.0.0",
+    "ndarray-ops": "^1.2.2",
+    "ndarray-pack": "^1.2.1",
+    "ndarray-show": "^2.0.0",
+    "zeros": "^1.0.0"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^1.2.0",
+    "require-reload": "^0.2.2",
     "rollup": "^0.34.10",
     "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^3.3.1",
     "rollup-plugin-node-resolve": "^2.0.0",
     "uglify-js": "^2.7.3"
   }
