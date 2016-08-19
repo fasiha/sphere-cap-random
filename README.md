@@ -18,7 +18,7 @@ This module uses [scijs](http://scijs.net/packages/) extensively, if amateurishl
 
 See this [bl.ock](http://bl.ocks.org/fasiha/2bbfc20ef882d76e27f17df31950d156) for an interactive display of random samples from three caps, using [plotly.js](https://plot.ly/javascript/3d-scatter-plots/):
 
-![Example](/images/[preview.png]?raw=true)
+![Example](/images/preview.png?raw=true)
 
 ## Installation
 
@@ -77,4 +77,4 @@ This module started life as a [Matlab function](https://github.com/fasiha/person
 
 Mike Bostock’s d3.js 4.0 inspired me to investigate Rollup and ES2015 modules. What a shock.
 
-Thanks to the creator and contributors of scijs and `ndarray`. Here’s to more adventures 🍻.
+Thanks to the creator and contributors of [scijs](http://scijs.net/packages/) and `ndarray`. Here’s to more adventures 🍻.

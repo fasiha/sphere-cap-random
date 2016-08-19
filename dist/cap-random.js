@@ -2498,7 +2498,6 @@ function sampleSphericalCap(params) {
 
   var π = Math.PI;
   var π2 = 2 * π;
-  var halfπ = 0.5 * π;
   var radPerDeg = π / 180;
 
   var minZ = params.z ? +params.z : params.deg ? Math.cos(+params.deg * radPerDeg) : params.rad ? Math.cos(+params.rad) : 0;

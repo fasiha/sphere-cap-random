@@ -14,7 +14,6 @@ export default function sampleSphericalCap(params) {
 
   const π = Math.PI;
   const π2 = 2 * π;
-  const halfπ = 0.5 * π;
   const radPerDeg = π / 180;
 
   const minZ =
