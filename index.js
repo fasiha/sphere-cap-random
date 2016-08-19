@@ -7,6 +7,9 @@ export {
   crossMatrix,
   ndToIterator,
   dot,
+  ndarrayColsToNative,
+  ndarrayToNative,
+  asNdarray,
 
   example1,
   example2,

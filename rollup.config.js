@@ -7,7 +7,11 @@ export default {
   format : 'umd',
   moduleName : 'capRandom',
   plugins : [
-    npm({jsnext : true}), commonjs({
+    npm({
+      jsnext : true,
+      browser : true,
+    }),
+    commonjs({
       ignoreGlobal : true,
       namedExports : {
         'node_modules/ndarray-ops/ndarray-ops.js' : [
@@ -34,7 +38,7 @@ export default {
     babel()
   ],
   dest : './dist/cap-random.js',
-  sourceMap: true,
-  sourceMapFile: 'dist/cap-random.js.map'
+  sourceMap : true,
+  sourceMapFile : 'dist/cap-random.js.map',
 };
 

@@ -5,6 +5,11 @@ import pack from 'ndarray-pack';
 import gemm from 'ndarray-gemm';
 import diagonal from 'ndarray-diagonal';
 
+import unpack from "ndarray-unpack";
+
+export function ndarrayToNative(x) { return unpack(x); }
+export function ndarrayColsToNative(x) { return unpack(x.transpose(1, 0)); }
+
 export default function sampleSphericalCap(params) {
   params = params == null ? {N : 1, z : 0} : params;
 
@@ -27,6 +32,8 @@ export default function sampleSphericalCap(params) {
            return [ x, y, z ];
          })).transpose(1, 0);
 }
+
+export function asNdarray(x) { return x.data ? x : pack(x); }
 
 export function sampleDirectedSphericalCap(direction, ...args) {
   const normDir = normalizeCols(direction);
