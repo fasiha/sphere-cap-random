@@ -4,8 +4,7 @@ import * as ops from 'ndarray-ops';
 import pack from 'ndarray-pack';
 import gemm from 'ndarray-gemm';
 import diagonal from 'ndarray-diagonal';
-
-import unpack from "ndarray-unpack";
+import unpack from 'ndarray-unpack';
 
 export function ndarrayToNative(x) { return unpack(x); }
 export function ndarrayColsToNative(x) { return unpack(x.transpose(1, 0)); }
@@ -36,7 +35,7 @@ export default function sampleSphericalCap(params) {
 export function asNdarray(x) { return x.data ? x : pack(x); }
 
 export function sampleDirectedSphericalCap(direction, ...args) {
-  const normDir = normalizeCols(direction);
+  const normDir = normalizeCols(asNdarray(direction));
   const rotAxis = normalizeCols(dot(crossMatrix(0, 0, 1), normDir));
   const rotAngle =
       Math.acos(dot(ndarray([ 0, 0, 1 ], [ 1, 3 ]), normDir).get(0, 0));
@@ -56,7 +55,7 @@ export function axisAngleToRotationMatrix(axis, angleRad) {
 
   ops.addeq(R, C);
 
-  gemm(R, axis, axis.transpose(1, 0), 1, 1);
+  gemm(R, axis, axis.transpose(1, 0), 1 - Math.cos(angleRad), 1);
 
   return R;
 }
@@ -85,7 +84,9 @@ export function normalizeCols(x) {
   for (var i = 0; i < x.shape[1]; i++) {
     const col = x.pick(null, i);
     const norm = ops.norm2(col);
-    ops.divseq(col, norm);
+    if (norm > 0) {
+      ops.divseq(col, norm);
+    }
   }
   return x;
 }
@@ -95,7 +96,9 @@ export function normalizeColsPure(x) {
   for (var i = 0; i < x.shape[1]; i++) {
     const col = x.pick(null, i);
     const norm = ops.norm2(col);
-    ops.divs(y.pick(null, i), col, norm);
+    if (norm > 0) {
+      ops.divs(y.pick(null, i), col, norm);
+    }
   }
   return y;
 }
