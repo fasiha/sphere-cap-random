@@ -18,14 +18,14 @@ export default function sampleSphericalCap(params) {
                 : (params.deg ? Math.cos(+params.deg * radPerDeg)
                               : (params.rad ? Math.cos(+params.rad) : 0)));
   const N = params.N ? +params.N : 1;
-  return Array.from({length : N}, _ => {
-    const z = Math.random() * (1 - minZ) + minZ;
-    const r = Math.sqrt(1 - z * z);
-    const θ = Math.random() * π2;
-    const x = r * Math.cos(θ);
-    const y = r * Math.sin(θ);
-    return [ x, y, z ];
-  });
+  return pack(Array.from({length : N}, _ => {
+           const z = Math.random() * (1 - minZ) + minZ;
+           const r = Math.sqrt(1 - z * z);
+           const θ = Math.random() * π2;
+           const x = r * Math.cos(θ);
+           const y = r * Math.sin(θ);
+           return [ x, y, z ];
+         })).transpose(1, 0);
 }
 
 export function sampleDirectedSphericalCap(direction, ...args) {
@@ -35,7 +35,7 @@ export function sampleDirectedSphericalCap(direction, ...args) {
       Math.acos(dot(ndarray([ 0, 0, 1 ], [ 1, 3 ]), normDir).get(0, 0));
   const R = axisAngleToRotationMatrix(rotAxis, rotAngle);
 
-  const samples = pack(sampleSphericalCap(...args)).transpose(1, 0);
+  const samples = sampleSphericalCap(...args);
 
   return dot(R, samples);
 }
@@ -70,7 +70,7 @@ export function dot(...args) {
   });
 }
 
-export function ndToIterator(x) { return (x.data || x); }
+export function ndToIterator(x) { return x.data || x; }
 
 // Can https://github.com/scijs/cwise#compute-2d-vector-norms-using-blocks be
 // used here?
@@ -81,6 +81,16 @@ export function normalizeCols(x) {
     ops.divseq(col, norm);
   }
   return x;
+}
+
+export function normalizeColsPure(x) {
+  const y = zeros(x.shape);
+  for (var i = 0; i < x.shape[1]; i++) {
+    const col = x.pick(null, i);
+    const norm = ops.norm2(col);
+    ops.divs(y.pick(null, i), col, norm);
+  }
+  return y;
 }
 
 export function example1() { return ops.random(ndarray([ 1, 2, 3, 4 ], [ 2, 2 ])); }

@@ -7,16 +7,18 @@
   "jsnext:main": "index",
   "scripts": {
     "pretest": "rm -fr dist && mkdir -p dist && rollup -c",
-    "test" : "npm run pretest && tape 'test/**/*-test.js'",
+    "test": "tape 'test/**/*-test.js'",
     "build": "npm run test && uglifyjs dist/cap-random.js -c -m -o dist/cap-random.min.js"
   },
-  "keywords": ["random",
-               "sample",
-               "points",
-               "sphere",
-               "spherical cap",
-               "geometry",
-               "linear algebra"],
+  "keywords": [
+    "random",
+    "sample",
+    "points",
+    "sphere",
+    "spherical cap",
+    "geometry",
+    "linear algebra"
+  ],
   "author": "Ahmed Fasih",
   "license": "Unlicense",
   "repository": {
@@ -24,8 +26,11 @@
     "url": "https://github.com/fasiha/sphere-cap-random.git"
   },
   "dependencies": {
+    "cwise": "^1.0.9",
+    "iota-array": "^1.0.0",
     "ndarray": "^1.0.18",
     "ndarray-diagonal": "^1.0.0",
+    "ndarray-fill": "^1.0.1",
     "ndarray-gemm": "^1.0.0",
     "ndarray-ops": "^1.2.2",
     "ndarray-pack": "^1.2.1",

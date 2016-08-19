@@ -3,6 +3,7 @@ export {
   sampleDirectedSphericalCap,
   axisAngleToRotationMatrix,
   normalizeCols,
+  normalizeColsPure,
   crossMatrix,
   ndToIterator,
   dot,
