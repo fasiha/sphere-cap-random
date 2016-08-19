@@ -2,13 +2,13 @@
 
 **Obtain random points on directed spherical caps.**
 
-In less high-falutin terms—random points on the surface of the Earth inside balls of fire like this one:
+In less high-falutin terms—random points on the surface of the Earth inside balls of fire like this one, caused by Vegeta in the series finale of Dragon Ball Z, circa 1996 😍:
 
 ![Vegeta, © FUNimation](/images/cap.jpg?raw=true)
 
 ## Introduction
 
-An amateur ES2015 module (i.e., works browser and Node.js) to draw random points from a directed spherical cap of the unit sphere ([Mathworld](http://mathworld.wolfram.com/SphericalCap.html), [Wikipedia](https://en.wikipedia.org/wiki/Spherical_cap)).
+An amateur ES2015 module (i.e., works browser and Node.js) to sample random points from a directed spherical cap of the unit sphere ([Mathworld](http://mathworld.wolfram.com/SphericalCap.html), [Wikipedia](https://en.wikipedia.org/wiki/Spherical_cap)).
 
 The cap may be specified using either an angle (of the cone emanating from the origin) or a height below surface, and is associated with a 3D vector along which lies the cap’s center.
 
@@ -16,7 +16,7 @@ This module uses [scijs](http://scijs.net/packages/) extensively, if amateurishl
 
 ## [Example](http://bl.ocks.org/fasiha/2bbfc20ef882d76e27f17df31950d156)
 
-See this [bl.ock](http://bl.ocks.org/fasiha/2bbfc20ef882d76e27f17df31950d156) for an interactive display of random samples from three caps, using [plotly.js](https://plot.ly/javascript/3d-scatter-plots/):
+[Click here to interact with a 3D visualization of random samples using plotly.js.](http://bl.ocks.org/fasiha/2bbfc20ef882d76e27f17df31950d156)
 
 ![Example](/images/preview.png?raw=true)
 
