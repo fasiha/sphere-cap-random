@@ -36,7 +36,7 @@ See this [bl.ock](http://bl.ocks.org/fasiha/2bbfc20ef882d76e27f17df31950d156) fo
 
 `sampleSphericalCap(params)` looks for the following slots in the `params` object:
 - `N`: return an 3×N array whose columns are the random points on the spherical cap;
-- `z`: the depth below the North Pole of the spherical cap—by default, 1.0, which describes the Northern Hemisphere; `z=2` would consider the entire sphere, rather than a cap.
+- `z`: the height above the xy-plane at the bottom of the cap. By default, `z` is 0, which describes the Northern Hemisphere; `z=-1` would consider the entire sphere, rather than a cap.
 - `deg`: the angle in degrees of the cone emanating from the origin and expanding towards the North Pole, and whose intersection with the sphere’s surface describes the spherical cap. And,
 - `rad`: this same angle in radians.
 
@@ -63,7 +63,7 @@ With this you get ten 3-long arrays.
 
 Whereas `sampleSphericalCap` considered the spherical cap centered on the North Pole, this function instead considers the spherical cap centered on the intersection of a `direction` 3-vector with the surface of the sphere (in the image above, the cause of the explosion: Vegeta).
 
-`sampleDirectedSphericalCap` can take the same parameter object as `sampleSphericalCap`: you may specify the number of samples via `N`, and/or the height of the cap `z`, or the angle of the cone describing the cap via `deg` or `rad`.
+`sampleDirectedSphericalCap` can take the same parameter object as `sampleSphericalCap`: you may specify the number of samples via `N`, and/or the `z`-dimension at the bottom of the cap (were it still centered at the North Pole), or the angle of the cone describing the cap via `deg` or `rad`.
 
 This function works by passing on the optional parameter object `params` to `sampleSphericalCap` and rotating the resulting point(s) via an [axis–angle rotation](https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle) to the desired direction.
 
