@@ -4,7 +4,7 @@
 
 In less high-falutin terms—random points on the surface of the Earth inside balls of fire like this one, caused by Vegeta in the series finale of Dragon Ball Z, circa 1996 😍:
 
-![Vegeta, © FUNimation](/images/cap.jpg?raw=true)
+![Vegeta, © FUNimation](https://raw.githubusercontent.com/fasiha/sphere-cap-random/gh-pages/images/cap.jpg)
 
 ## Introduction
 
@@ -18,7 +18,7 @@ This module uses [scijs](http://scijs.net/packages/) extensively, if amateurishl
 
 [Click here to interact with a 3D visualization of random samples using plotly.js.](http://bl.ocks.org/fasiha/2bbfc20ef882d76e27f17df31950d156)
 
-![Example](/images/preview.png?raw=true)
+![Example](https://raw.githubusercontent.com/fasiha/sphere-cap-random/gh-pages/images/preview.png)
 
 ## Installation
 
