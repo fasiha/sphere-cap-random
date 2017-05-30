@@ -1,6 +1,6 @@
 {
   "name": "sphere-cap-random",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Randomly sample points on the directed spherical cap",
   "main": "dist/cap-random.js",
   "module": "index",

@@ -22,11 +22,11 @@ This module uses [scijs](http://scijs.net/packages/) extensively, if amateurishl
 
 ## Installation
 
+**Node.js** `npm install --save sphere-cap-random` (or `yarn add sphere-cap-random` for yarn users). If you’re developing this library, add `const capRandom = require('./cap-random.min.js');` and use the functions therein.
+
 **Download** either [random-cap.js](https://raw.githubusercontent.com/fasiha/sphere-cap-random/gh-pages/dist/cap-random.js) (for development: [sourcemap](https://raw.githubusercontent.com/fasiha/sphere-cap-random/gh-pages/dist/cap-random.js.map) available) or [random-cap.min.js](https://raw.githubusercontent.com/fasiha/sphere-cap-random/gh-pages/dist/cap-random.min.js) (minified). Both are UMD—universal modules and can be used in either browser or server-side.
 
 **Browser** Add `<script src="cap-random.min.js"></script>` to your HTML. This loads a global `capRandom` object which contains all the goodies.
-
-**Node.js** Add `const capRandom = require('./cap-random.min.js');` and use the functions therein. NPM module forthcoming.
 
 ## API Usage
 
